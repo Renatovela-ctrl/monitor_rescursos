@@ -41,6 +41,9 @@ for i in {1..5}; do
     # Guardar resultados en el archivo de salida en formato de tabla
     printf "%-10s %-20s %-15s %-15s\n" "${tiempo_s}s" "$uso_cpu%" "$uso_memoria%" "$uso_disco%" >> "$archivo_salida"
     
-    # Esperar 60 segundos antes de la siguiente medición
+    #Ir a la siguiente linea
+    ((linea++))
+
+    #Esperar 60 segundos
     sleep 60
 done
