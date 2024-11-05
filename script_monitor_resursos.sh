@@ -10,8 +10,8 @@ calcular_cpu_libre() {
 calcular_memoria_libre() {
     linea_memoria=$(free -m | grep "Mem")
     memoria_total=$(echo "$linea_memoria" | awk '{print $2}')
-    memoria_usada=$(echo "$linea_memoria" | awk '{print $4}')
-    memoria_libre_porcentaje=$(echo "scale=2; 100 - ($memoria_usada / $memoria_total) * 100" | bc)
+    memoria_libre=$(echo "$linea_memoria" | awk '{print $4}')
+    memoria_libre_porcentaje=$(echo "scale=2; ($memoria_libre / $memoria_total) * 100" | bc)
     echo "$memoria_libre_porcentaje"
 }
 
