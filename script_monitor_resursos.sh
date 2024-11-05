@@ -4,6 +4,12 @@ calcular_cpu_libre() {
     cpu_inactiva=$(echo "$linea_cpu" | awk '{print $8}' | sed 's/,/./')
     cpu_libre=$(echo "$cpu_inactiva" | bc)
     echo "$cpu_libre"
+
+    # Verificar si memoria_libre_porcentaje es "id" y reemplazarlo por 100
+    if [ "$cpu_libre" = "id," ]; then
+        cpu_libre=100
+    fi
+    echo "$cpu_libre"
 }
 
 # Función para calcular el porcentaje de memoria libre
@@ -12,7 +18,6 @@ calcular_memoria_libre() {
     memoria_total=$(echo "$linea_memoria" | awk '{print $2}')
     memoria_libre=$(echo "$linea_memoria" | awk '{print $4}')
     memoria_libre_porcentaje=$(echo "scale=2; ($memoria_libre / $memoria_total) * 100" | bc)
-    echo "$memoria_libre_porcentaje"
 }
 
 # Función para calcular el porcentaje de disco libre
