@@ -111,3 +111,63 @@ Ahora el script se ejecutará automáticamente cada vez que el sistema inicie.
 
 ## Contribuciones
 No dudes en enviar problemas o solicitudes de mejora mediante `pull requests` o `issues`.
+
+# Comandos Útiles
+
+## MySQL
+
+```sql
+-- Seleccionar columnas específicas de una tabla
+SELECT columnas FROM tabla;
+
+-- Filtrar datos según una condición
+SELECT columnas FROM tabla WHERE condicion;
+
+-- Filtrar con múltiples condiciones (AND, OR)
+SELECT columnas FROM tabla WHERE condicion1 AND condicion2;
+
+-- Filtrar datos dentro de un rango
+SELECT columnas FROM tabla WHERE columna BETWEEN valor1 AND valor2;
+
+-- Buscar coincidencias con un patrón
+SELECT columnas FROM tabla WHERE columna LIKE 'patron';
+
+-- Filtrar por valores en una lista
+SELECT columnas FROM tabla WHERE columna IN (valor1, valor2, valor3);
+
+-- Ordenar resultados
+SELECT columnas FROM tabla ORDER BY columna ASC|DESC;
+
+-- Limitar el número de resultados
+SELECT columnas FROM tabla LIMIT numero;
+
+-- Agrupar datos y aplicar funciones de agregación
+SELECT columna, funcion_agregacion(columna) FROM tabla GROUP BY columna;
+
+-- Filtrar valores nulos
+SELECT columnas FROM tabla WHERE columna IS NULL;
+
+-- Buscar texto completo en columnas indexadas
+SELECT columnas FROM tabla WHERE MATCH(columnas) AGAINST ('palabra clave');
+
+
+# Generar carga en la CPU
+stress --cpu numero_de_nucleos --timeout tiempo_en_segundos
+
+# Generar carga en la CPU indefinidamente
+stress --cpu numero_de_nucleos
+
+# Generar carga combinada en CPU y memoria
+stress --cpu numero_de_nucleos --vm procesos_memoria --vm-bytes cantidad_memoria --timeout tiempo_en_segundos
+
+# Generar carga de operaciones de entrada/salida
+stress --io numero_de_procesos --timeout tiempo_en_segundos
+
+# Generar carga en el almacenamiento temporal
+stress --hdd numero_de_procesos --timeout tiempo_en_segundos
+
+# Combinar carga en CPU, memoria, y almacenamiento
+stress --cpu numero_de_nucleos --vm procesos_memoria --vm-bytes cantidad_memoria --hdd numero_de_procesos --timeout tiempo_en_segundos
+
+# Detener procesos relacionados con stress
+pkill -f stress
