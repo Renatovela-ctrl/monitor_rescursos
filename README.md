@@ -150,6 +150,7 @@ SELECT columnas FROM tabla WHERE columna IS NULL;
 -- Buscar texto completo en columnas indexadas
 SELECT columnas FROM tabla WHERE MATCH(columnas) AGAINST ('palabra clave');
 
+## Stress
 
 # Generar carga en la CPU
 stress --cpu numero_de_nucleos --timeout tiempo_en_segundos
