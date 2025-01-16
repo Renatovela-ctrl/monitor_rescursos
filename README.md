@@ -109,9 +109,6 @@ Ahora el script se ejecutará automáticamente cada vez que el sistema inicie.
 3. **Errores en la Base de Datos**
    - Asegúrate de que la base de datos sea accesible y que las credenciales sean correctas.
 
-## Contribuciones
-No dudes en enviar problemas o solicitudes de mejora mediante `pull requests` o `issues`.
-
 # Comandos Útiles
 
 ## MySQL
